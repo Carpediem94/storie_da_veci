@@ -21,11 +21,24 @@
         %>
         <%
             String sql = "SELECT * "
+<<<<<<< Updated upstream
                 + "FROM carpediem.Post P, carpediem.Categoria C, carpediem.Utente U "
                 + "WHERE C.id_cat = ? "
                 + "AND P.categoria = C.id_cat "
                 + "AND U.id_utente = P.utente ";
             ResultSet rs = manager.getData(sql,id_cat);
+=======
+                    + "FROM carpediem.Post P, carpediem.Categoria C, carpediem.Utente U "
+                    + "WHERE C.id_cat = ? "
+                    + "AND P.categoria = C.id_cat "
+                    + "AND U.id_utente = P.utente ";
+            
+            String sql2 = "SELECT * "
+                    + "FROM carpediem.Categoria C "
+                    + "WHERE C.id_cat = ? ";
+            ResultSet rs = manager.getData(sql, id_cat);
+            ResultSet rs2 = manager.getData(sql2, id_cat);
+>>>>>>> Stashed changes
         %>
         <div class="container-fluid" id="pagina-categoria">
             <div class="row">
