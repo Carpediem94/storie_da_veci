@@ -64,8 +64,7 @@
                             int found =0;
                             while (rs.next() && info.next()) {
                                 if(j==0){ %> 
-                        <div> <%=rs.getString("utente")%></div> 
-                        <div class="col-sm-4 panel-heading" style="text-align: center">
+                        <div class="col-sm-4 panel1 panel-heading" style="text-align: center">
                            Nome:<%= info.getString("nome")%>
                            Cognome:<%=info.getString("cognome")%>
                         </div> 
@@ -73,7 +72,7 @@
                             found = 1;
                         %>
                     </div>
-                    <div class="col-sm-5 panel-heading" style="text-align: center">
+                    <div class="col-sm-5 panel1 panel-heading" style="text-align: center">
                         <h2 class ="panel-default" ><%= rs.getString("titolo")%></h2>
                     <% 
                         j++;
@@ -83,27 +82,32 @@
                 <div class="col-sm-2"></div>
             </div>
             <hr>
-            <div class="row">
+            <div class="row content">
                 <div class="col-sm-2"></div>
-                <div class="col-sm-8"><%= rs.getString("testo")%></div>
+                <div class="col-sm-8 panel panel1 panel-default panel-chiaro"><%= rs.getString("testo")%></div>
                 <div class="col-sm-2"></div>                    
             </div>
             <div class="row content">
-            <div class="col-sm-2">    
-            <div class="col-sm-5">
-                <% if (rs.getString("media") != null) {%>
-                                <br><br><a href="<%= rs.getString("media")%>" target="blank">Contenuto multimediale</a>
-                                <% } else { %> Spiacente, non possiamo fornire un contenuto multimediale. <% }; %>
-            </div>    
-            <div class="col-sm-2">
-                                <form method="post" action="userPub.jsp">
+                <div class="col-sm-2"></div>    
+                <div class="col-sm-8 panel panel1 panel-default panel-chiaro">
+                    <% if (rs.getString("media") != null) {%>
+                    <a href="<%= rs.getString("media")%>" target="blank" class="link-a-utente">Vai al contenuto multimediale per questo post.</a>
+                                <% } else { %> Ci dispiace che non possiamo fornire un contenuto multimediale per questo post. Ci stiam  o lavorando. Grazie :-) <% }; %>
+                </div>    
+                <div class="col-sm-2"></div>
+            </div>
+                <div class="row content">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8 panel panel1 panel-default panel-chiaro">
+                        <form method="post" action="userPub.jsp">
                                     <input type="hidden" name="id" value="<%=rs.getString("utente")%>">
-                                    <input type="submit" class="link-a-utente" value="<%= info.getString("cognome")%>">
-                                </form>
-                            </div>        
+                                    <input type="submit" class="link-a-utente" value="<%= "Vedi tutto dell'utente " + info.getString("nome") +" "+ info.getString("cognome")%>"> 
+                        </form>
+                    </div>        
+                    <div class="col-sm-2"></div>    
                 </div>
             <div class="row"></div>
             <% } %>
-        </div>            
+        </div>
     </body>
 </html>
