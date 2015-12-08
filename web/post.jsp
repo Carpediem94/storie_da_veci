@@ -92,7 +92,7 @@
                 <div class="col-sm-8 panel panel1 panel-default panel-chiaro">
                     <% if (rs.getString("media") != null) {%>
                     <a href="<%= rs.getString("media")%>" target="blank" class="link-a-utente">Vai al contenuto multimediale per questo post.</a>
-                                <% } else { %> Ci dispiace che non possiamo fornire un contenuto multimediale per questo post. Ci stiam  o lavorando. Grazie :-) <% }; %>
+                                <% } else { %> Ci dispiace che non possiamo fornire un contenuto multimediale per questo post. Ci stiamo lavorando. Grazie :-) <% }; %>
                 </div>    
                 <div class="col-sm-2"></div>
             </div>
